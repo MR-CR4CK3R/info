@@ -254,13 +254,15 @@ def format_response(data):
     }
 
 # === API Routes ===
-@app.route('/player-info')
+@app.route('/info')
 def get_account_info():
     region = request.args.get('region')
     uid = request.args.get('uid')
-    if not uid or not region:
-        return jsonify({"error": "Please provide UID and REGION."}), 400
-    
+    key = request.args.get('key')
+    if not uid or not region or not key:
+        return jsonify({"error": "Please provide uid, region and the api key."}), 400
+    if key !="TOC":
+        return jsonify({"error": "invalid key. Please provide correct api key."}), 400
     try:
         return_data = asyncio.run(GetAccountInformation(uid, "7", region, "/GetPlayerPersonalShow"))
         formatted = format_response(return_data)
