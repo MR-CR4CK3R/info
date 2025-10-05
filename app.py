@@ -266,7 +266,7 @@ def get_account_info():
     try:
         return_data = asyncio.run(GetAccountInformation(uid, "7", region, "/GetPlayerPersonalShow"))
         formatted = format_response(return_data)
-        return jsonify(formatted), 200
+        return jsonify(return_data), 200
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
     except Exception as e:
