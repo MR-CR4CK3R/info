@@ -53,7 +53,7 @@ def get_account_credentials(region: str) -> str:
     elif r in {"BR", "US", "SAC", "NA"}:
         return "uid=3957942405&password=C762C429481752AAE664A92D6E99DF731D4AE16056129933F8BF823749AA3D41"
     else:
-        return "uid=3919224900&password=6213E4C5C414BB0A015F675B443FBD3A6B561ABEC55CF5ECEEEFA64321C4A125"
+        return "uid=4210779683&password=MR_CRACKER-CCG1YSJSL-TOC-BD"
 
 # === Fixed Token Generation ===
 async def get_access_token(account: str):
@@ -270,7 +270,7 @@ def get_account_info():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
     except Exception as e:
-        return jsonify({"error": "Invalid UID or Region. Please check and try again."}), 500
+        return jsonify({"error": "Invalid UID gggor Region. Please check and try again."}), 500
 
 @app.route('/refresh', methods=['GET', 'POST'])
 def refresh_tokens_endpoint():
