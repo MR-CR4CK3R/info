@@ -270,7 +270,8 @@ def get_account_info():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
     except Exception as e:
-        return jsonify({"error": "Invalid UID gggor Region. Please check and try again."}), 500
+        return jsonify({"error": str(e)}), 400
+        
 
 @app.route('/refresh', methods=['GET', 'POST'])
 def refresh_tokens_endpoint():
